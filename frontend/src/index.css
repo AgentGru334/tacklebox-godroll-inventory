@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/outfit";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: 'Outfit Variable', sans-serif;
+    --font-sans: 'Plus Jakarta Sans Variable', sans-serif;
+    --font-mono: 'JetBrains Mono Variable', monospace;
+    --color-teal: #00E5FF;
+    --color-gold: #FFB703;
+    --color-gunmetal: #0B0D11;
+    --color-panel: #14181F;
+    --color-plate: #1A202C;
+    --color-steel: #27303E;
+    --color-hazard: #EF4444;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+    --animate-beacon: beacon 1.8s ease-in-out infinite;
+    --animate-glow-swipe: glow-swipe 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes beacon {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 183, 3, 0.6); }
+    50% { opacity: 0.55; box-shadow: 0 0 0 6px rgba(255, 183, 3, 0); }
+}
+
+@keyframes glow-swipe {
+    0% { transform: translateX(-120%) skewX(-20deg); }
+    60%, 100% { transform: translateX(260%) skewX(-20deg); }
+}
+
+:root, .dark {
+    --background: #0B0D11;
+    --foreground: #F3F4F6;
+    --card: #14181F;
+    --card-foreground: #F9FAFB;
+    --popover: #12161E;
+    --popover-foreground: #F8FAFC;
+    --primary: #00E5FF;
+    --primary-foreground: #04151F;
+    --secondary: #1E2530;
+    --secondary-foreground: #F3F4F6;
+    --muted: #1A202C;
+    --muted-foreground: #9CA3AF;
+    --accent: #1E2733;
+    --accent-foreground: #FFFFFF;
+    --destructive: #EF4444;
+    --border: #27303E;
+    --input: #2E3846;
+    --ring: #00E5FF;
+    --chart-1: #00E5FF;
+    --chart-2: #FFB703;
+    --chart-3: #10B981;
+    --chart-4: #EF4444;
+    --chart-5: #94A3B8;
+    --radius: 0.25rem;
+    --sidebar: #0F1217;
+    --sidebar-foreground: #F3F4F6;
+    --sidebar-primary: #00E5FF;
+    --sidebar-primary-foreground: #04151F;
+    --sidebar-accent: #1A202C;
+    --sidebar-accent-foreground: #FFFFFF;
+    --sidebar-border: #27303E;
+    --sidebar-ring: #00E5FF;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(ellipse at top, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 4px);
+    background-attachment: fixed;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+
+@layer utilities {
+  .hazard-stripes {
+    background-image: repeating-linear-gradient(-45deg, rgba(255, 183, 3, 0.9) 0 10px, rgba(11, 13, 17, 0.95) 10px 20px);
+  }
+  .chamfer {
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  .hud-grid {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-beacon, .animate-glow-swipe { animation: none; }
+}

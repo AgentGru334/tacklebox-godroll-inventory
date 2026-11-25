@@ -1,0 +1,6 @@
+# Used when the Railway service root is this backend/ directory.
+# OCR (RapidOCR/ONNX) and ZIP reassembly need a reasonably sized instance
+# (export guide: at least 2 vCPU / 2 GB RAM). Use one uvicorn worker:
+# the in-memory share-link rate limiter is process-local.
+[start]
+cmd = "uvicorn server:app --host 0.0.0.0 --port $PORT"
